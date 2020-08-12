@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Secure Home Page</title>
+<link rel="stylesheet" type="text/css" media="all"
+href="../static/css/mycss.css" th:href="@{/css/mycss.css}" />
+
+</head>
+<body>
+<div class="context">
+
+<div class="container">
+	<h1>Please, Enter your Order!</h1>
+	
+	<form method="post" action="#" th:action="@{/secureAdmin/submit}" th:object=${cinema}>
+		
+		NAME OF THE CINEMA:<input  type="text" name="cinemaName" placeholder="NAME OF THE CINEMA"><br>
+		NAME OF THE STAGE:<input  type="text" name="cinemaStage" placeholder="NAME OF THE STAGE"><br>
+		Number Of Available Seats:<input  type="NUMBER" name="availableSeats" placeholder="Number Of Available Seats"><br>
+		Movie: <select th:field="*{movie}" name="movie">
+				<option th:each="m:*{movies}" th:value="${m}" th:text="${m}">
+		</select><br>
+		<input type="checkbox" name="features" value="properlySanitized" /> Theater is properly sanitized<br>
+		<input type="checkbox" name="features" value="markedSeats" /> All seats are marked for proper social distancing<br>
+		<input type="checkbox" name="features" value="markedGround" />Ground is marked for proper social distancing<br>
+		<input type="checkbox" name="features" value="doorSigns" />Proper entrance and exits rules are displayed<br>
+		<input type="checkbox" checked="true" name="features" value="" style="display:none;"/><br>
+		
+		
+		<input type="submit" name="submit" value="SUBMIT">
+ 	
+	</form>
+	</div>
+	
+	<p>
+		<a href="/" th:href="@{/}">Back to home page</a>
+	</p>
+	<p>
+		<a href="#" th:href="@{/logout}">Logout</a>
+	</p>
+</div>
+<div class="area">
+		<ul class="circles">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Receipt</title>
+<link rel="stylesheet" type="text/css" media="all"
+href="../static/css/mycss.css" th:href="@{/css/mycss.css}" />
+</head>
+<body>
+
+<div class="context">
+		<div class="container">
+	<h1>Available Cinemas</h1>
+	<table align="center" th:if="${cinemaList != null AND cinemaList != ''}">
+		<tr>
+			<th>Name</th>
+			<th>Stage</th>
+			<th>Seats Available</th>
+			<th>Movie</th>
+			<th>Sanitized</th>
+			<th>Social distancing seats</th>
+			<th>Marked Ground</th>
+			<th>Door Signs</th>
+			
+		</tr>
+		<tr th:each="r : ${cinemaList}">
+			<td th:text="${r.cinemaName}">NAME</td>
+			<td th:text="${r.cinemaStage}">DESCRIPTION</td>
+			<td th:text="${r.availableSeats}">DESCRIPTION</td>
+			<td th:text="${r.movie}">DESCRIPTION</td>
+			<td th:text="${r.properlySanitized}">DESCRIPTION</td>
+			<td th:text="${r.markedSeats}">DESCRIPTION</td>
+			<td th:text="${r.markedGround}">DESCRIPTION</td>
+			<td th:text="${r.doorSigns}">DESCRIPTION</td>
+		</tr>
+	</table>
+	
+	</div>
+	
+	
+	
+	
+	<p>
+		<a href="/" th:href="@{/}">Back to home page</a>
+	</p>
+	<p>
+		<a href="#" th:href="@{/logout}">Logout</a>
+	</p>
+	
+	
+	
+	</div>
+
+
+
+<!--The following CSS code was used for the background animation and was retrieved from:
+
+https://codepen.io/mohaiman/pen/MQqMyo -->
+
+	<div class="area">
+		<ul class="circles">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+
+</body>
+</html>
